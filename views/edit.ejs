@@ -1,0 +1,53 @@
+<%- include('header') %>
+
+  <div class="mt-5 container"
+    style="border: 1px solid black; background-color: whitesmoke;  border-top-left-radius: 30px; border-bottom-right-radius: 30px;">
+    <div class="mt-4 mb-4">
+        <% record.forEach(function(row){%>
+        <form class="container" action="/record/edit" method="post">
+            <h1 style="text-align: center; color: gray;">Edit Employee Registration Form</h1>
+            <input type="text" value="<%= row.id %>" hidden>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" class="form-control" name="ename" value="<%= row.name %>" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputPassword1">Email</label>
+            <input type="email" class="form-control" name="empmail" value="<%= row.email %>" id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Employee Type</label>
+            <select class="form-control" name="emptype">
+                <option value="Hourly" <% if(row.etype == 'Hourly'){ %> selected <% } %>>Hourly</option>
+                <option value="Fixed" <% if(row.etype == 'Fixed'){ %> selected <% } %>>Fixed</option>
+            </select>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Hourly Rate</label>
+            <input type="text" class="form-control" name="hrlyrate" value="<%= row.hourlyrate %>" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Total Hour</label>
+            <input type="text" class="form-control" name="ttlhrs" value="<%= row.totalhour %>" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      <% }) %>
+    </div>
+  </div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
